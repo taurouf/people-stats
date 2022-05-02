@@ -1,9 +1,8 @@
-import React, { useMemo } from "react";
-import Tables from "../tools/tables";
-
-import { DB_USER } from "../../database/dbusers";
-import { usersManagement } from "./table/columnsTables";
-import { optionsManagement } from "./table/optionsTables";
+import React, { useMemo } from 'react';
+import Tables from '../tools/tables';
+import DB_USER from '../../database/dbusers';
+import usersManagement from './table/columnsTables';
+import optionsManagement from './table/optionsTables';
 
 const Users = () => {
   const columns = useMemo(() => usersManagement, []);

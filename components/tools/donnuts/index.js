@@ -1,6 +1,6 @@
-import React from "react";
-import { Doughnut } from "react-chartjs-2";
-import "chart.js/auto";
+import React from 'react';
+import { Doughnut } from 'react-chartjs-2';
+import 'chart.js/auto';
 
 const Donnuts = ({ title, data }) => (
   <div className="w-96 text-left font-extrabold text-xl">

@@ -1,15 +1,16 @@
-import Head from "next/head";
-import { useAppSelector } from "../../redux/hooks";
+import Head from 'next/head';
+import React from 'react';
+import { useAppSelector } from '../../redux/hooks';
 
-//Components
-import Login from "../login";
-import Header from "./header";
-import UserBadge from "./header/userbadge";
+// Components
+import Login from '../login';
+import Header from './header';
+import UserBadge from './header/userbadge';
 
 export default function Layout({ children }) {
   const { auth } = useAppSelector((e) => e);
 
-  let content = (
+  const content = (
     <div className="flex flex-row flex-auto overflow-hidden">
       <Header />
       <div className="flex flex-col w-full md:space-y-4">

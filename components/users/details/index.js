@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { DB_USER } from "../../../database/dbusers";
-import { DateTime } from "luxon";
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useEffect, useState } from 'react';
+import { DateTime } from 'luxon';
+import DB_USER from '../../../database/dbusers';
 
 const userDetails = () => {
   const id = window.location.pathname.substr(
-    window.location.pathname.lastIndexOf("/") + 1
+    window.location.pathname.lastIndexOf('/') + 1
   );
 
   const [data, setData] = useState([]);
-  console.log(data);
 
   useEffect(() => {
+    // eslint-disable-next-line no-restricted-syntax
     for (const user of DB_USER) {
       if (user?.login?.uuid === id) {
         setData(user);
@@ -36,7 +37,7 @@ const userDetails = () => {
                   {data?.name?.first} {data?.name?.last} ({data?.dob?.age} ans)
                 </h1>
                 <h3 className="text-gray-600 font-lg text-semibold leading-6">
-                  {data?.location?.city}, {data?.location?.state},{" "}
+                  {data?.location?.city}, {data?.location?.state},{' '}
                   {data?.location?.country}
                 </h3>
 
@@ -53,11 +54,11 @@ const userDetails = () => {
                     <span>Member since</span>
                     <span className="ml-auto">
                       {data?.registered?.date
-                        ? data.registered.date &&
-                          DateTime.fromISO(data.registered.date).toFormat(
-                            "dd-mm-yyyy"
+                        ? data.registered.date
+                          && DateTime.fromISO(data.registered.date).toFormat(
+                            'dd-mm-yyyy'
                           )
-                        : "N/A"}
+                        : 'N/A'}
                     </span>
                   </li>
                 </ul>
@@ -116,8 +117,8 @@ const userDetails = () => {
                         Permanant Address
                       </div>
                       <div className="px-4 py-2">
-                        {data?.location?.street?.number},{" "}
-                        {data?.location?.street?.name}, {data?.location?.city},{" "}
+                        {data?.location?.street?.number},{' '}
+                        {data?.location?.street?.name}, {data?.location?.city},{' '}
                       </div>
                     </div>
                     <div className="grid grid-cols-2">
@@ -134,9 +135,9 @@ const userDetails = () => {
                     <div className="grid grid-cols-2">
                       <div className="px-4 py-2 font-semibold">Birthday</div>
                       <div className="px-4 py-2">
-                        {data?.dob?.date &&
-                          DateTime.fromISO(data?.dob?.date).toFormat(
-                            "dd-mm-yyyy"
+                        {data?.dob?.date
+                          && DateTime.fromISO(data?.dob?.date).toFormat(
+                            'dd-mm-yyyy'
                           )}
                       </div>
                     </div>

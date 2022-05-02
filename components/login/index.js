@@ -1,15 +1,16 @@
-import { useState } from "react";
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import { useState, React } from 'react';
 
-//Redux
-import { login } from "../../redux/slices/auth";
-import { useAppDispatch } from "../../redux/hooks";
-import { userLogin } from "../../database/auth";
+// Redux
+import { login } from '../../redux/slices/auth';
+import { useAppDispatch } from '../../redux/hooks';
+import userLogin from '../../database/auth';
 
 export default function Login() {
   const dispatch = useAppDispatch();
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -22,8 +23,8 @@ export default function Login() {
           first: auth.name.first,
           last: auth.name.last,
           email: auth.email,
-          photoURL: auth.picture.thumbnail,
-        },
+          photoURL: auth.picture.thumbnail
+        }
       };
       dispatch(login(auths));
     }

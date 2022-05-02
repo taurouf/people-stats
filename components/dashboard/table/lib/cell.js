@@ -1,4 +1,5 @@
-import getUnicodeFlagIcon from "country-flag-icons/unicode";
+import getUnicodeFlagIcon from 'country-flag-icons/unicode';
+import React from 'react';
 
 export function countryCell({ row }) {
   return (
@@ -14,7 +15,7 @@ export function countryCell({ row }) {
 export function countCell({ row }) {
   return (
     <>
-      <div className={`flex items-center cursor-pointer text-sm font-medium`}>
+      <div className={'flex items-center cursor-pointer text-sm font-medium'}>
         <div className="flex items-center">{row.original.count}</div>
       </div>
     </>

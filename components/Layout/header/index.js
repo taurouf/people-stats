@@ -1,8 +1,11 @@
-//Redux
-import { useRouter } from "next/router";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+// Redux
+import { useRouter } from 'next/router';
 
-//Icons
-import { restrictedAllRight } from "../../../hooks/";
+// Icons
+import React from 'react';
+import RestrictedAllRight from '../../../hooks';
 
 export default function Header() {
   const router = useRouter();
@@ -13,11 +16,11 @@ export default function Header() {
       <div className="flex flex-col sm:flex-row sm:justify-around">
         <div className="h-screen">
           <nav className="px-6">
-            {restrictedAllRight.map((e, i) => (
+            {RestrictedAllRight.map((e, i) => (
               <div
                 key={i}
                 className={`${
-                  url == e.name.toLowerCase() && "bg-gray-100"
+                  url === e.name.toLowerCase() && 'bg-gray-100'
                 } static flex items-center p-2 my-6 hover:text-gray-800 hover:bg-gray-100 transition-colors dark:hover:text-white dark:hover:bg-gray-600 duration-200 text-gray-800 dark:text-gray-100 rounded-lg dark:bg-gray-600 cursor-pointer`}
                 onClick={() => router.push(e.link)}
               >

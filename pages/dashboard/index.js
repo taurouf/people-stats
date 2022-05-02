@@ -1,12 +1,11 @@
-import Layout from "../../components/Layout";
-import Dashboard from "../../components/dashboard";
+import React from 'react';
+import Layout from '../../components/Layout';
+import Dashboard from '../../components/dashboard';
 
-const Dashboards = () => {
-  return (
+const Dashboards = () => (
     <Layout>
       <Dashboard />
     </Layout>
-  );
-};
+);
 
 export default Dashboards;

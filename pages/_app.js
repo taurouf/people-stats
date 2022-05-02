@@ -1,13 +1,13 @@
-//React / Next
-import { AppProps } from "next/app";
+// React / Next
+import React from 'react';
 
-//Redux
-import { Provider } from "react-redux";
-import store, { persistor } from "../redux/store";
-import { PersistGate } from "redux-persist/integration/react";
+// Redux
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import store, { persistor } from '../redux/store';
 
-//CSS
-import "../styles/globals.css";
+// CSS
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return (

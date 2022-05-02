@@ -1,14 +1,18 @@
-import { useEffect, useState, useMemo } from "react";
-import lodash from "lodash";
+/* eslint-disable no-unused-vars */
+/* eslint-disable array-callback-return */
+import {
+  useEffect, useState, useMemo, React
+} from 'react';
+import lodash from 'lodash';
 
-//All data
-import { DB_USER } from "../../database/dbusers";
-import Donnuts from "../tools/Donnuts";
+// All data
+import DB_USER from '../../database/dbusers';
+import Donnuts from '../tools/donnuts';
 
-//Tools tables
-import Tables from "../tools/tables";
-import { countryManagement } from "./table/columnsTables";
-import { optionsManagement } from "./table/optionsTables";
+// Tools tables
+import Tables from '../tools/tables';
+import countryManagement from './table/columnsTables';
+import optionsManagement from './table/optionsTables';
 
 export default function Dashboard() {
   const columns = useMemo(() => countryManagement, []);
@@ -23,80 +27,81 @@ export default function Dashboard() {
     loadingUsers();
   }, []);
 
-  //Gender Donnuts
-  let labelGender = [];
+  // Gender Donnuts
+  const labelGender = [];
   users.map((user) => {
     if (!labelGender.includes(user.gender)) {
       labelGender.push(user.gender);
     }
   });
-  let { male, female } = lodash.countBy(DB_USER, "gender");
+  const { male, female } = lodash.countBy(DB_USER, 'gender');
 
-  //Country Donnuts
-  let labelCountry = [];
+  // Country Donnuts
+  const labelCountry = [];
   users.map((user) => {
     if (!labelCountry.includes(user.location.country)) {
       labelCountry.push(user.location.country);
     }
   });
-  let country = Object.entries(lodash.countBy(DB_USER, "location.country")).map(
+  const country = Object.entries(lodash.countBy(DB_USER, 'location.country')).map(
     ([key, value]) => value
   );
 
-  //Data  Donnuts
-  const sendData = (label, data) => {
-    return {
-      labels: label,
-      datasets: [
-        {
-          data: data,
-          backgroundColor: [
-            "#FF6384",
-            "#36A2EB",
-            "#FFCE56",
-            "#32CD32",
-            "#4B0082",
-            "#9932CC",
-            "#87CEEB",
-            "#DEB887",
-            "#FFD700",
-            "#FFA500",
-            "#FF4500",
-            "#DA70D6",
-            "#FF69B4",
-            "#FF1493",
-            "#C71585",
-            "#DB7093",
-            "#FF00FF",
-          ],
-          hoverBackgroundColor: [
-            "#FF6384",
-            "#36A2EB",
-            "#FFCE56",
-            "#32CD32",
-            "#4B0082",
-            "#9932CC",
-            "#87CEEB",
-            "#DEB887",
-            "#FFD700",
-            "#FFA500",
-            "#FF4500",
-            "#DA70D6",
-            "#FF69B4",
-            "#FF1493",
-            "#C71585",
-            "#DB7093",
-            "#FF00FF",
-          ],
-        },
-      ],
-    };
-  };
+  // Data  Donnuts
+  const sendData = (label, data) => ({
+    labels: label,
+    datasets: [
+      {
+        data,
+        backgroundColor: [
+          '#FF6384',
+          '#36A2EB',
+          '#FFCE56',
+          '#32CD32',
+          '#4B0082',
+          '#9932CC',
+          '#87CEEB',
+          '#DEB887',
+          '#FFD700',
+          '#FFA500',
+          '#FF4500',
+          '#DA70D6',
+          '#FF69B4',
+          '#FF1493',
+          '#C71585',
+          '#DB7093',
+          '#FF00FF'
+        ],
+        hoverBackgroundColor: [
+          '#FF6384',
+          '#36A2EB',
+          '#FFCE56',
+          '#32CD32',
+          '#4B0082',
+          '#9932CC',
+          '#87CEEB',
+          '#DEB887',
+          '#FFD700',
+          '#FFA500',
+          '#FF4500',
+          '#DA70D6',
+          '#FF69B4',
+          '#FF1493',
+          '#C71585',
+          '#DB7093',
+          '#FF00FF'
+        ]
+      }
+    ]
+  });
 
-  let topCountry = [];
-  Object.entries(lodash.countBy(DB_USER, "location.country")).map(
+  const topCountry = [];
+  Object.entries(lodash.countBy(DB_USER, 'location.country')).map(
     ([key, value]) => topCountry.push({ country: key, count: value })
   );
+  console.log(topCountry);
+  console.log(columns);
+  console.log(optionsManagement);
 
   return (
     <>

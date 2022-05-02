@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { useAsyncDebounce } from "react-table";
+import { useState, React } from 'react';
+import { useAsyncDebounce } from 'react-table';
 
-export const GlobalFilter = ({
+const GlobalFilter = ({
   preGlobalFilteredRows,
   globalFilter,
   setGlobalFilter,
-  name,
+  name
 }) => {
   const count = preGlobalFilteredRows.length;
   const [value, setValue] = useState(globalFilter);
@@ -17,7 +17,7 @@ export const GlobalFilter = ({
       <input
         type="text"
         className="rounded-md shadow-sm border border-1 p-1 border-gray"
-        value={value || ""}
+        value={value || ''}
         onChange={(e) => {
           setValue(e.target.value);
           onChange(e.target.value);
@@ -27,3 +27,4 @@ export const GlobalFilter = ({
     </label>
   );
 };
+export default GlobalFilter;

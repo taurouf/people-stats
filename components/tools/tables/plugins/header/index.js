@@ -1,15 +1,15 @@
-import React from "react";
-import { GlobalFilter } from "./GlobalFilter";
-import { useAppSelector } from "../../../../../redux/hooks";
+import React from 'react';
+import GlobalFilter from './GlobalFilter';
+import { useAppSelector } from '../../../../../redux/hooks';
 
 const Header = ({
   name,
   preGlobalFilteredRows,
   setGlobalFilter,
   headerGroups,
-  state,
+  state
 }) => {
-  const auth = useAppSelector((e) => e.auth);
+  useAppSelector((e) => e.auth);
   return (
     <div className="flex justify-between mb-4">
       <GlobalFilter
@@ -19,15 +19,11 @@ const Header = ({
         setGlobalFilter={setGlobalFilter}
       />
       <div className="flex mr-3 items-center cursor-pointer">
-        {headerGroups.map((headerGroup) =>
-          headerGroup.headers.map((column) =>
-            column.Filter ? (
+        {headerGroups.map((headerGroup) => headerGroup.headers.map((column) => (column.Filter ? (
               <div className="mt-2 ml-3 sm:mt-0" key={column.id}>
-                {column.render("Filter")}
+                {column.render('Filter')}
               </div>
-            ) : null
-          )
-        )}
+        ) : null)))}
       </div>
     </div>
   );

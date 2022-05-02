@@ -1,12 +1,21 @@
-import { DB_USER } from "./dbusers";
+/* eslint-disable no-plusplus */
+/* eslint-disable consistent-return */
+import { DB_USER } from './dbusers';
 
-export const userLogin = (username, password) => {
+const userLogin = (username, password) => {
   for (let i = 0; DB_USER.length; i++) {
+    const user = DB_USER[i];
+
+    if (!user.login) {
+      return {};
+    }
+
     if (
-      DB_USER[i].login.username === username &&
-      DB_USER[i].login.password === password
+      user.login.username === username
+      && user.login.password === password
     ) {
-      return DB_USER[i];
+      return user;
     }
   }
 };
+export default userLogin;

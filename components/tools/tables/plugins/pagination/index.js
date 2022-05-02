@@ -2,10 +2,11 @@ import {
   ChevronDoubleLeftIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-  ChevronDoubleRightIcon,
-} from "@heroicons/react/solid";
+  ChevronDoubleRightIcon
+} from '@heroicons/react/solid';
 
-import { Button, PageButton } from "../shared/Button";
+import React from 'react';
+import { Button, PageButton } from '../shared/Button';
 
 const Pagination = ({
   state,
@@ -16,9 +17,8 @@ const Pagination = ({
   previousPage,
   nextPage,
   canPreviousPage,
-  canNextPage,
-}) => {
-  return (
+  canNextPage
+}) => (
     <div className="py-3 flex items-center justify-between">
       <div className="flex-1 flex justify-between sm:hidden">
         <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
@@ -31,7 +31,7 @@ const Pagination = ({
       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
         <div className="flex gap-x-2 items-baseline">
           <span className="text-sm text-gray-700">
-            Page <span className="font-medium">{state.pageIndex + 1}</span> of{" "}
+            Page <span className="font-medium">{state.pageIndex + 1}</span> of{' '}
             <span className="font-medium">{pageOptions.length}</span>
           </span>
           <label>
@@ -98,7 +98,6 @@ const Pagination = ({
         </div>
       </div>
     </div>
-  );
-};
+);
 
 export default Pagination;

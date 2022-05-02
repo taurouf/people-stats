@@ -1,4 +1,5 @@
-import { useState } from "react";
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import { useState, React } from 'react';
 
 export function AvatarCell({ row }) {
   const [expanded, setExpanded] = useState(false);
@@ -6,6 +7,8 @@ export function AvatarCell({ row }) {
     <>
       <div className="flex items-center">
         <div
+        role="button"
+        tabIndex="0"
           className="p-2 cursor-pointer"
           onClick={(e) => {
             e.stopPropagation();
@@ -20,8 +23,8 @@ export function AvatarCell({ row }) {
             referrerPolicy="no-referrer"
             alt=""
             src={
-              row.original.picture.thumbnail ||
-              "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm"
+              row.original.picture.thumbnail
+              || 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm'
             }
           />
         </div>
@@ -41,7 +44,7 @@ export function userCell({ row }) {
       <div className="flex items-center cursor-pointer text-sm font-medium text-gray-500">
         <div className="flex items-center">
           {row?.original?.email?.substr(0, 22)}
-          <span>{row?.original?.email?.length >= 23 && "..."}</span>
+          <span>{row?.original?.email?.length >= 23 && '...'}</span>
         </div>
       </div>
     </>

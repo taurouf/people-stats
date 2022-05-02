@@ -1,15 +1,15 @@
-import { NextPage } from "next";
-import { useRouter } from "next/router";
-import { useAppSelector } from "../redux/hooks";
+import React from 'react';
+import { useRouter } from 'next/router';
+import { useAppSelector } from '../redux/hooks';
 
-import Login from "../components/login";
+import Login from '../components/login';
 
 const Home = () => {
   const router = useRouter();
   const auth = useAppSelector((e) => e.auth);
 
   const redirect = () => {
-    router.push("/dashboard");
+    router.push('/dashboard');
     return null;
   };
 

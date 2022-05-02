@@ -1,9 +1,13 @@
-const ArrowOut = ({ color, size, height, width }) => (
+import React from 'react';
+
+const ArrowOut = ({
+  color, size, height, width
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    height={size ? size : height}
-    width={size ? size : width}
-    stroke={color ? color : "currentColor"}
+    height={size || height}
+    width={size || width}
+    stroke={color || 'currentColor'}
     viewBox="0 0 24 24"
     fill="none"
     strokeWidth="2"
